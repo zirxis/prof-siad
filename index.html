@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة قائمة التلاميذ - 3 أفواج</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    نظام إدارة قائمة التلاميذ - 3 أفواج
+                </h1>
+                <nav class="nav">
+                    <button class="nav-btn" onclick="showDashboard()">
+                        <i class="fas fa-home"></i>
+                        الرئيسية
+                    </button>
+                    <button class="nav-btn" onclick="showGroup(1)">
+                        <i class="fas fa-users"></i>
+                        الفوج 1
+                    </button>
+                    <button class="nav-btn" onclick="showGroup(2)">
+                        <i class="fas fa-users"></i>
+                        الفوج 2
+                    </button>
+                    <button class="nav-btn" onclick="showGroup(3)">
+                        <i class="fas fa-users"></i>
+                        الفوج 3
+                    </button>
+                    <button class="nav-btn" onclick="showStatistics()">
+                        <i class="fas fa-chart-bar"></i>
+                        الإحصائيات
+                    </button>
+                    <button class="nav-btn" onclick="exportData()">
+                        <i class="fas fa-download"></i>
+                        تصدير البيانات
+                    </button>
+                    <button class="nav-btn" onclick="printList()">
+                        <i class="fas fa-print"></i>
+                        طباعة
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="dashboard">
+                <div class="dashboard-header">
+                    <h2>لوحة التحكم - 120 تلميذ مقسمين إلى 3 أفواج</h2>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalStudents">120</h3>
+                                <p>إجمالي التلاميذ</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="attendanceRate">0%</h3>
+                                <p>معدل الحضور العام</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="paymentRate">0%</h3>
+                                <p>معدل الدفع العام</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="presentToday">0</h3>
+                                <p>الحضور اليوم</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- إحصائيات الأفواج -->
+                <div class="groups-stats">
+                    <h3>إحصائيات الأفواج</h3>
+                    <div class="groups-grid">
+                        <div class="group-card" onclick="showGroup(1)">
+                            <div class="group-header">
+                                <h4>الفوج الأول</h4>
+                                <span class="group-badge group-1">40 تلميذ</span>
+                            </div>
+                            <div class="group-stats">
+                                <div class="group-stat">
+                                    <span class="stat-label">عدد التلاميذ:</span>
+                                    <span class="stat-value" id="group1Students">40</span>
+                                </div>
+                                <div class="group-stat">
+                                    <span class="stat-label">معدل الحضور:</span>
+                                    <span class="stat-value" id="group1Attendance">0%</span>
+                                </div>
+                                <div class="group-stat">
+                                    <span class="stat-label">معدل الدفع:</span>
+                                    <span class="stat-value" id="group1Payment">0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-card" onclick="showGroup(2)">
+                            <div class="group-header">
+                                <h4>الفوج الثاني</h4>
+                                <span class="group-badge group-2">40 تلميذ</span>
+                            </div>
+                            <div class="group-stats">
+                                <div class="group-stat">
+                                    <span class="stat-label">عدد التلاميذ:</span>
+                                    <span class="stat-value" id="group2Students">40</span>
+                                </div>
+                                <div class="group-stat">
+                                    <span class="stat-label">معدل الحضور:</span>
+                                    <span class="stat-value" id="group2Attendance">0%</span>
+                                </div>
+                                <div class="group-stat">
+                                    <span class="stat-label">معدل الدفع:</span>
+                                    <span class="stat-value" id="group2Payment">0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-card" onclick="showGroup(3)">
+                            <div class="group-header">
+                                <h4>الفوج الثالث</h4>
+                                <span class="group-badge group-3">40 تلميذ</span>
+                            </div>
+                            <div class="group-stats">
+                                <div class="group-stat">
+                                    <span class="stat-label">عدد التلاميذ:</span>
+                                    <span class="stat-value" id="group3Students">40</span>
+                                </div>
+                                <div class="group-stat">
+                                    <span class="stat-label">معدل الحضور:</span>
+                                    <span class="stat-value" id="group3Attendance">0%</span>
+                                </div>
+                                <div class="group-stat">
+                                    <span class="stat-label">معدل الدفع:</span>
+                                    <span class="stat-value" id="group3Payment">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="btn btn-primary" onclick="showAllStudents()">
+                        <i class="fas fa-list"></i>
+                        عرض جميع التلاميذ
+                    </button>
+                    <button class="btn btn-success" onclick="markAllPresent()">
+                        <i class="fas fa-check-circle"></i>
+                        تسجيل حضور الجميع
+                    </button>
+                    <button class="btn btn-warning" onclick="showUnpaidStudents()">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        المدفوعات المتأخرة
+                    </button>
+                    <button class="btn btn-info" onclick="addNewStudent()">
+                        <i class="fas fa-user-plus"></i>
+                        إضافة تلميذ جديد
+                    </button>
+                </div>
+            </section>
+
+            <!-- List View Section -->
+            <section id="listView" class="list-view">
+                <div class="list-view-header">
+                    <div class="header-left">
+                        <button class="btn btn-secondary" onclick="showDashboard()">
+                            <i class="fas fa-arrow-right"></i>
+                            العودة للرئيسية
+                        </button>
+                        <h2 id="listTitle">قائمة التلاميذ (120 تلميذ)</h2>
+                    </div>
+                    <div class="list-controls">
+                        <input type="text" id="searchInput" placeholder="البحث عن تلميذ..." class="search-input">
+                        <select id="groupFilter" class="group-filter">
+                            <option value="">جميع الأفواج</option>
+                            <option value="1">الفوج الأول</option>
+                            <option value="2">الفوج الثاني</option>
+                            <option value="3">الفوج الثالث</option>
+                        </select>
+                        <select id="monthFilter" class="month-filter">
+                            <option value="">جميع الأشهر</option>
+                            <option value="1">الشهر الأول</option>
+                            <option value="2">الشهر الثاني</option>
+                            <option value="3">الشهر الثالث</option>
+                            <option value="4">الشهر الرابع</option>
+                            <option value="5">الشهر الخامس</option>
+                            <option value="6">الشهر السادس</option>
+                            <option value="7">الشهر السابع</option>
+                            <option value="8">الشهر الثامن</option>
+                            <option value="9">الشهر التاسع</option>
+                            <option value="10">الشهر العاشر</option>
+                        </select>
+                        <select id="attendanceFilter" class="attendance-filter">
+                            <option value="">جميع الحالات</option>
+                            <option value="present">حاضر</option>
+                            <option value="absent">غائب</option>
+                            <option value="late">متأخر</option>
+                            <option value="not-marked">غير محدد</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="exportToCSV()">
+                            <i class="fas fa-file-csv"></i>
+                            تصدير CSV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pagination-info">
+                    <span id="paginationInfo">عرض 1-20 من 120 تلميذ</span>
+                    <div class="pagination-controls">
+                        <button class="btn btn-sm" onclick="previousPage()" id="prevBtn">
+                            <i class="fas fa-chevron-right"></i>
+                            السابق
+                        </button>
+                        <span id="pageInfo">صفحة 1 من 6</span>
+                        <button class="btn btn-sm" onclick="nextPage()" id="nextBtn">
+                            التالي
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="students-table-container">
+                    <table class="students-table" id="studentsTable">
+                        <thead>
+                            <tr>
+                                <th>الرقم</th>
+                                <th>الفوج</th>
+                                <th>اسم التلميذ</th>
+                                <th>الحضور (8 حصص)</th>
+                                <th>الدفعات (10 أشهر)</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsTableBody">
+                            <!-- سيتم ملء البيانات بواسطة JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-bottom">
+                    <div class="pagination-controls">
+                        <button class="btn btn-sm" onclick="previousPage()" id="prevBtnBottom">
+                            <i class="fas fa-chevron-right"></i>
+                            السابق
+                        </button>
+                        <span id="pageInfoBottom">صفحة 1 من 6</span>
+                        <button class="btn btn-sm" onclick="nextPage()" id="nextBtnBottom">
+                            التالي
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Student Details Section -->
+            <section id="studentDetails" class="student-details hidden">
+                <div class="student-details-header">
+                    <button class="btn btn-secondary" onclick="goBackToList()">
+                        <i class="fas fa-arrow-right"></i>
+                        العودة للقائمة
+                    </button>
+                    <h2 id="studentName">تفاصيل التلميذ</h2>
+                    <div class="student-actions">
+                        <button class="btn btn-danger" onclick="deleteCurrentStudent()">
+                            <i class="fas fa-trash"></i>
+                            حذف التلميذ
+                        </button>
+                    </div>
+                </div>
+
+                <div class="student-info-grid">
+                    <div class="attendance-section">
+                        <h3>سجل الحضور</h3>
+                        <div class="attendance-summary">
+                            <div class="summary-item">
+                                <span class="summary-label">إجمالي الحضور:</span>
+                                <span class="summary-value" id="totalPresent">0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">إجمالي الغياب:</span>
+                                <span class="summary-value" id="totalAbsent">0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">إجمالي التأخير:</span>
+                                <span class="summary-value" id="totalLate">0</span>
+                            </div>
+                        </div>
+                        <div class="attendance-grid" id="attendanceGrid">
+                            <!-- سيتم ملء البيانات بواسطة JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="payments-section">
+                        <h3>سجل الدفعات</h3>
+                        <div class="payments-summary">
+                            <div class="summary-item">
+                                <span class="summary-label">المدفوع:</span>
+                                <span class="summary-value" id="totalPaid">0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">غير المدفوع:</span>
+                                <span class="summary-value" id="totalUnpaid">10</span>
+                            </div>
+                        </div>
+                        <div class="payments-grid" id="paymentsGrid">
+                            <!-- سيتم ملء البيانات بواسطة JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 نظام إدارة قائمة التلاميذ - 3 أفواج (40 تلميذ لكل فوج). جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

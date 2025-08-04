@@ -1,0 +1,1052 @@
+/* إعادة تعيين الأنماط الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* المتغيرات العامة */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --light-gray: #e2e8f0;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    
+    /* ألوان الأفواج */
+    --group-1-color: #3b82f6;
+    --group-2-color: #10b981;
+    --group-3-color: #f59e0b;
+}
+
+/* الأنماط العامة */
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    direction: rtl;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* الأنماط المساعدة */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* الرأس */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo i {
+    font-size: 2rem;
+}
+
+.nav {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* المحتوى الرئيسي */
+.main {
+    min-height: calc(100vh - 120px);
+    padding: 1rem 0;
+}
+
+/* لوحة التحكم */
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.stat-info p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* إحصائيات الأفواج */
+.groups-stats {
+    margin-bottom: 2rem;
+}
+
+.groups-stats h3 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.group-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+    border-top: 4px solid var(--primary-color);
+}
+
+.group-card:nth-child(1) {
+    border-top-color: var(--group-1-color);
+}
+
+.group-card:nth-child(2) {
+    border-top-color: var(--group-2-color);
+}
+
+.group-card:nth-child(3) {
+    border-top-color: var(--group-3-color);
+}
+
+.group-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.group-header h4 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.group-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.group-badge.group-1 {
+    background: var(--group-1-color);
+}
+
+.group-badge.group-2 {
+    background: var(--group-2-color);
+}
+
+.group-badge.group-3 {
+    background: var(--group-3-color);
+}
+
+.group-stats {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.group-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.group-stat:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.stat-value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* الإجراءات السريعة */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* الأزرار */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: var(--white);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #4b5563;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-success:hover:not(:disabled) {
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+.btn-warning {
+    background: var(--warning-color);
+    color: var(--white);
+}
+
+.btn-warning:hover:not(:disabled) {
+    background: #d97706;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: var(--white);
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+.btn-info {
+    background: #0ea5e9;
+    color: var(--white);
+}
+
+.btn-info:hover:not(:disabled) {
+    background: #0284c7;
+    transform: translateY(-2px);
+}
+
+/* عرض القائمة */
+.list-view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.list-view-header h2 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.list-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-input,
+.month-filter,
+.attendance-filter,
+.group-filter {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    font-family: 'Tajawal', sans-serif;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    min-width: 120px;
+}
+
+.search-input {
+    min-width: 200px;
+}
+
+.search-input:focus,
+.month-filter:focus,
+.attendance-filter:focus,
+.group-filter:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* معلومات التصفح */
+.pagination-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagination-bottom {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* جدول التلاميذ */
+.students-table-container {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.students-table th,
+.students-table td {
+    padding: 1rem;
+    text-align: right;
+    border-bottom: 1px solid var(--light-gray);
+    vertical-align: middle;
+}
+
+.students-table th {
+    background: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    font-family: 'Cairo', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.students-table tr:hover {
+    background: #f1f5f9;
+}
+
+.name-input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.name-input:focus {
+    background: var(--white);
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+/* شارات الأفواج في الجدول */
+.group-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+    display: inline-block;
+}
+
+.group-badge.group-1 {
+    background: var(--group-1-color);
+}
+
+.group-badge.group-2 {
+    background: var(--group-2-color);
+}
+
+.group-badge.group-3 {
+    background: var(--group-3-color);
+}
+
+.attendance-badges,
+.payment-badges {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.attendance-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.attendance-badge:hover {
+    transform: scale(1.1);
+    border-color: var(--text-color);
+}
+
+.attendance-badge.present {
+    background: var(--secondary-color);
+}
+
+.attendance-badge.absent {
+    background: var(--danger-color);
+}
+
+.attendance-badge.late {
+    background: var(--warning-color);
+}
+
+.attendance-badge.not-marked {
+    background: var(--light-gray);
+    color: var(--text-color);
+}
+
+.payment-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    min-width: 24px;
+    text-align: center;
+}
+
+.payment-badge:hover {
+    transform: scale(1.05);
+    border-color: var(--text-color);
+}
+
+.payment-badge.paid {
+    background: #dcfce7;
+    color: var(--secondary-color);
+}
+
+.payment-badge.unpaid {
+    background: #fee2e2;
+    color: var(--danger-color);
+}
+
+/* تفاصيل التلميذ */
+.student-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.student-details-header h2 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.75rem;
+    color: var(--text-color);
+}
+
+.student-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.student-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.attendance-section,
+.payments-section {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.attendance-section h3,
+.payments-section h3 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.attendance-summary,
+.payments-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: var(--border-radius);
+}
+
+.summary-item {
+    text-align: center;
+}
+
+.summary-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.summary-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.attendance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.attendance-item {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.attendance-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.attendance-item.present {
+    background: #dcfce7;
+    border-color: var(--secondary-color);
+}
+
+.attendance-item.absent {
+    background: #fee2e2;
+    border-color: var(--danger-color);
+}
+
+.attendance-item.late {
+    background: #fef3c7;
+    border-color: var(--warning-color);
+}
+
+.attendance-item h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.payments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.payment-item {
+    padding: 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: center;
+}
+
+.payment-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.payment-item.paid {
+    background: #dcfce7;
+    border-color: var(--secondary-color);
+}
+
+.payment-item.unpaid {
+    background: #fee2e2;
+    border-color: var(--danger-color);
+}
+
+.payment-item h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.payment-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* التذييل */
+.footer {
+    background: var(--text-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* الاستجابة للأجهزة المحمولة */
+
+/* الأجهزة اللوحية */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .groups-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .student-info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .attendance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* الأجهزة المحمولة الكبيرة */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .nav {
+        justify-content: center;
+        gap: 0.25rem;
+    }
+    
+    .nav-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .nav-btn i {
+        display: none;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+    
+    .list-view-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .header-left {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .list-controls {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .search-input {
+        min-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .pagination-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .students-table-container {
+        margin: 0 -15px;
+        border-radius: 0;
+    }
+    
+    .students-table {
+        min-width: 700px;
+    }
+    
+    .students-table th,
+    .students-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .attendance-badges,
+    .payment-badges {
+        gap: 0.125rem;
+    }
+    
+    .attendance-badge {
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
+    }
+    
+    .payment-badge {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.6rem;
+        min-width: 20px;
+    }
+    
+    .student-details-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .student-actions {
+        justify-content: center;
+    }
+    
+    .attendance-summary,
+    .payments-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .attendance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .payments-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* الأجهزة المحمولة الصغيرة */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .main {
+        padding: 0.5rem 0;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .logo i {
+        font-size: 1.2rem;
+    }
+    
+    .nav-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .dashboard-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .stat-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+    }
+    
+    .list-view-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .search-input,
+    .month-filter,
+    .attendance-filter,
+    .group-filter {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        min-width: 100px;
+    }
+    
+    .students-table {
+        min-width: 600px;
+    }
+    
+    .students-table th,
+    .students-table td {
+        padding: 0.4rem;
+        font-size: 0.7rem;
+    }
+    
+    .name-input {
+        font-size: 0.8rem;
+    }
+    
+    .attendance-badge {
+        width: 20px;
+        height: 20px;
+        font-size: 0.5rem;
+    }
+    
+    .payment-badge {
+        padding: 0.15rem 0.3rem;
+        font-size: 0.5rem;
+        min-width: 18px;
+    }
+    
+    .attendance-section,
+    .payments-section {
+        padding: 1rem;
+    }
+    
+    .attendance-summary,
+    .payments-summary {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0.5rem;
+    }
+    
+    .summary-label {
+        font-size: 0.7rem;
+    }
+    
+    .summary-value {
+        font-size: 1rem;
+    }
+    
+    .group-card {
+        padding: 1rem;
+    }
+    
+    .group-header h4 {
+        font-size: 1rem;
+    }
+    
+    .group-badge {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+}
+
